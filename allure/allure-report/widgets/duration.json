@@ -1,0 +1,181 @@
+[ {
+  "uid" : "65a32a00686a6a6a",
+  "name" : "TC: 53, Verify movies are sorted in correct order",
+  "time" : {
+    "start" : 1587551733603,
+    "stop" : 1587551861451,
+    "duration" : 127848
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "878f3111e6a7940c",
+  "name" : "Verify user is able to enter Email in email field",
+  "time" : {
+    "start" : 1587551655717,
+    "stop" : 1587551655916,
+    "duration" : 199
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b94605ccef02e00c",
+  "name" : "Verify carousel image set by admin is visible",
+  "time" : {
+    "start" : 1587551655586,
+    "stop" : 1587551655618,
+    "duration" : 32
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8ebc8ca567de7ec5",
+  "name" : "TC: 55, Verify elements for each Movie card in recently watched",
+  "time" : {
+    "start" : 1587551861451,
+    "stop" : 1587551861620,
+    "duration" : 169
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ac2cf644f437c5bb",
+  "name" : "verify elements present in login model",
+  "time" : {
+    "start" : 1587551655622,
+    "stop" : 1587551655717,
+    "duration" : 95
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "51f1f17fd5bf9072",
+  "name" : "TC: 58, Verify functionality of Watch Movie button",
+  "time" : {
+    "start" : 1587551875547,
+    "stop" : 1587551935199,
+    "duration" : 59652
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e2dd32a4be391c7",
+  "name" : "Verify user lands on login page",
+  "time" : {
+    "start" : 1587551622101,
+    "stop" : 1587551655578,
+    "duration" : 33477
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "dfefa02df7745c2b",
+  "name" : "TC: 60, Verify functionality of Watch Trailer button",
+  "time" : {
+    "start" : 1587551935207,
+    "stop" : 1587551967503,
+    "duration" : 32296
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "168019bd2445da71",
+  "name" : "TC: 57, Verify functionality of Add to List button",
+  "time" : {
+    "start" : 1587551870280,
+    "stop" : 1587551875539,
+    "duration" : 5259
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2488bb937f08d1a3",
+  "name" : "TC : 64, Verify Right Navigation Arrow is visible only when we hover on the last card on the right",
+  "time" : {
+    "start" : 1587551989337,
+    "stop" : 1587551992834,
+    "duration" : 3497
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "169c331f34eebada",
+  "name" : "TC: 66, Verify Right Navigation Arrow is disabled when we are on the last card in the list",
+  "time" : {
+    "start" : 1587551996014,
+    "stop" : 1587552013770,
+    "duration" : 17756
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "390abab1d6d6b5ef",
+  "name" : "TC: 62, Verify functionality of View Details button",
+  "time" : {
+    "start" : 1587551967511,
+    "stop" : 1587551989333,
+    "duration" : 21822
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "25cda04075a56858",
+  "name" : "TC: 65, Verify click behavior of Right Navigation arrow",
+  "time" : {
+    "start" : 1587551992842,
+    "stop" : 1587551996010,
+    "duration" : 3168
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "faa833f7d508f8db",
+  "name" : "verify user is successfully logged in",
+  "time" : {
+    "start" : 1587551659169,
+    "stop" : 1587551683627,
+    "duration" : 24458
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9904629e583128c6",
+  "name" : "TC: 50, Verify elements for Recently Watched section",
+  "time" : {
+    "start" : 1587551712328,
+    "stop" : 1587551733603,
+    "duration" : 21275
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e8232e99005fa370",
+  "name" : "TC: 56, Verify hover behavior on movie cards",
+  "time" : {
+    "start" : 1587551861620,
+    "stop" : 1587551870272,
+    "duration" : 8652
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7bf358064b9fece5",
+  "name" : "TC: 49, Verify Recently Watched slider is displayed if user watches a movie",
+  "time" : {
+    "start" : 1587551683643,
+    "stop" : 1587551712324,
+    "duration" : 28681
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "982ae62cc2c44a27",
+  "name" : "Verify user with valid email id can proceed to next step",
+  "time" : {
+    "start" : 1587551655920,
+    "stop" : 1587551659161,
+    "duration" : 3241
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

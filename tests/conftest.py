@@ -19,6 +19,7 @@ DEFAULT_WAIT_TIME = 10
 SUPPORTED_BROWSERS = ['chrome']
 SUPPORTED_EXECUTORS = ['mobile', 'desktop']
 
+
 @allure.step('Reading config from json file')
 @pytest.fixture(scope='session')
 def config():
@@ -26,6 +27,7 @@ def config():
     with open(CONFIG_PATH) as config_file:
         data = json.load(config_file)
     return data
+
 
 @allure.step('Configuring browser')
 @pytest.fixture(scope='session')
@@ -38,6 +40,7 @@ def config_browser(config):
         raise Exception(f'"{config["browser"]}" is not a supported browser')
     return config['browser']
 
+
 @allure.step('Configuring executor')
 @pytest.fixture(scope='session')
 def config_executor(config):
@@ -49,12 +52,12 @@ def config_executor(config):
         raise Exception(f'"{config["executor"]}" is not a supported executor')
     return config['executor']
 
+
 @allure.step('Configuring the wait time for browser')
 @pytest.fixture(scope='session')
 def config_wait_time(config):
     # Validate and return the wait time from the config data
     return config['wait_time'] if 'wait_time' in config else DEFAULT_WAIT_TIME
-
 
 
 @allure.step('Initializing the configured browser')
@@ -72,19 +75,19 @@ def browser(config_browser, config_wait_time, config_executor, request):
             driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         elif config_executor == "desktop":
             options = Options()
-            #options.headless = True
+            # options.headless = True
             options.add_argument('log-level=3')
             options.add_argument("--window-size=1920,1080")
             options.add_argument("--disable-extensions")
             options.add_argument("--proxy-server='direct://'")
             options.add_argument("--proxy-bypass-list=*")
             options.add_argument("--start-maximized")
-            # options.add_argument('--headless')
-            # options.add_argument('--disable-gpu')
-            # options.add_argument('--disable-dev-shm-usage')
-            # options.add_argument('--no-sandbox')
-            # options.add_argument('--ignore-certificate-errors')
-            driver = Chrome(Browser_path, options = options)#, options = options
+            options.add_argument('--headless')
+            options.add_argument('--disable-gpu')
+            options.add_argument('--disable-dev-shm-usage')
+            options.add_argument('--no-sandbox')
+            options.add_argument('--ignore-certificate-errors')
+            driver = Chrome(Browser_path, options=options)  # , options = options
         else:
             raise Exception(f'"{config_executor}" is not a supported executor')
     else:
@@ -98,7 +101,8 @@ def browser(config_browser, config_wait_time, config_executor, request):
     yield driver
 
     # For cleanup, quit the driver
-    driver.quit()    #to uncomment after passed
+    driver.quit()  # to uncomment after passed
+
 
 # @pytest.fixture(scope="function")
 # def listener(request):

@@ -139,44 +139,44 @@ def test_sharelist(browser):
     assert listdet.verify_sharewindow() == True, "share window not found"
     assert listdet.verify_shareemail() == False, "List not shared through mail"
 
-#
-# @allure.title('tc-47,To verify user is able to download csv')
-# def test_downloadcsv(browser):
-#     global listdet
-#     listdet = ListDetails(browser)
-#     assert listdet.verify_downloadcsv() == True, "downloaded csv not found"
-#
-#
-# @allure.title('tc-48,To verify select all titile checkbox')
-# def test_selectalltitle(browser):
-#     global listdet
-#     listdet = ListDetails(browser)
-#     assert listdet.verify_selectalltitle() == True, "select all checkbox not selected"
-#
-#
-# @allure.title('tc-50,To Verify User is able to share list by clicking on Share button in header')
-# def test_sharelistheader(browser):
-#     global listdet
-#     listdet = ListDetails(browser)
-#     assert listdet.verify_sharelistheader() == False, "List not shared through mail"
-#
-#
-# @allure.title('tc-46,To verify delete title in the list')
-# def test_deletetitle(browser):
-#     global listdet
-#     listdet = ListDetails(browser)
-#     listdet.verify_deletetitle()
-#
-#
-# @allure.title('tc-49,To Verify user is able to Delete list')
-# def test_deletelist(browser):
-#     global listdet
-#     listdet = ListDetails(browser)
-#     assert listdet.verify_deletelist() == False, "list not removed from my list page"
-#
-#
-# @allure.title('tc-37,To verify Watch Movie should not be shown in case of a TV entity')
-# def test_watchmovieintv(browser):
-#     global listdet
-#     listdet = ListDetails(browser)
-#     assert listdet.verify_watchmovieintv() == False, "Watch Movie should shown in case of a TV entity"
+
+@allure.title('tc-47,To verify user is able to download csv')
+def test_downloadcsv(browser):
+    global listdet
+    listdet = ListDetails(browser)
+    assert listdet.verify_downloadcsv() == True, "downloaded csv not found"
+
+
+@allure.title('tc-48,To verify select all titile checkbox')
+def test_selectalltitle(browser):
+    global listdet
+    listdet = ListDetails(browser)
+    assert listdet.verify_selectalltitle() == True, "select all checkbox not selected"
+
+
+@allure.title('tc-50,To Verify User is able to share list by clicking on Share button in header')
+def test_sharelistheader(browser):
+    global listdet
+    listdet = ListDetails(browser)
+    assert listdet.verify_sharelistheader() == False, "List not shared through mail"
+
+
+@allure.title('tc-46,To verify delete title in the list')
+def test_deletetitle(browser):
+    global listdet
+    listdet = ListDetails(browser)
+    listdet.verify_deletetitle()
+
+
+@allure.title('tc-49,To Verify user is able to Delete list')
+def test_deletelist(browser):
+    global listdet
+    listdet = ListDetails(browser)
+    assert listdet.verify_deletelist() == False, "list not removed from my list page"
+
+
+@allure.title('tc-37,To verify Watch Movie should not be shown in case of a TV entity')
+def test_watchmovieintv(browser):
+    global listdet
+    listdet = ListDetails(browser)
+    assert listdet.verify_watchmovieintv() == False, "Watch Movie should shown in case of a TV entity"

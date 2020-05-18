@@ -21,7 +21,7 @@ def test_verifycarousalimage(browser):
     verify = user.CarouselImage()
     assert verify == True
 
-#
+
 # @allure.title('verify elements present in login model')
 # def test_elementloginmodel(browser):
 #     email = user.VerifyEmail()

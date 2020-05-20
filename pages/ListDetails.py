@@ -24,9 +24,9 @@ class ListDetails():
     addtolistmovie = (
         By.XPATH,
         "//li[1]//div[2]//mgm-list-poster[1]//div[1]//div[1]//div[1]//div[1]//div[2]//ul[1]//li[1]//button[1]")
-    toggledemo = (By.XPATH, "//span[contains(text(),'Demo')]/preceding-sibling::span[1]")
+    toggledemo = (By.XPATH, "//span[contains(text(),'movietest')]/preceding-sibling::span[1]")
     mylist = (By.XPATH, "//ul[@class='menu-items']//a[@id='My Lists']")
-    listele = (By.XPATH, "//a[contains(text(),'Demo')]")
+    listele = (By.XPATH, "//a[contains(text(),'movietest')]")
     listchkbox = (By.XPATH, "//input[@id='select-all']")
     listtitle = (By.XPATH, "//span[@class='view-title']")
     listgrid = (By.XPATH, "//div[@class='white-grid']")
@@ -85,6 +85,7 @@ class ListDetails():
     deletelistbutton = (By.XPATH, "//div[@class='delete-btn ng-star-inserted']/button[contains(text(),'Delete List')]")
     deletefooterbutton = (By.XPATH, "//div[@class='item-list']/div[2]/div[4]/button")
     deletetitle = (By.XPATH, "//button[@class='cui-btn cui-btn-primary ng-star-inserted']")
+    listunderline = (By.XPATH, "//ul[@class='menu-items']//a[@id='My Lists']")
     televisionclick = (By.XPATH, "//ul[@class='menu-items']//a[@id='Television']")
     tvcheck = (By.XPATH,
                "//div[@class='movie-detail']/p[contains(text(),' Mr. Mom (series) ')]/ancestor::mgm-list-poster/ancestor::div[@class='poster']/preceding-sibling::div[@class='checkBox']/mgm-checkbox-single")
@@ -107,26 +108,34 @@ class ListDetails():
         WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.movieheader))
         self.browser.find_element(*self.movieheader).click()
         time.sleep(40)
+        WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.searchmovie))
         self.browser.find_element(*self.searchmovie).send_keys("spectre")
         actionchains.send_keys(Keys.ENTER).perform()
-        time.sleep(12)
+        time.sleep(30)
         lst = self.browser.find_element(*self.moviedetail)
+        WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.moviedetail))
         self.browser.execute_script("arguments[0].scrollIntoView();", lst)
         verifyoverlay = self.browser.find_element(*self.moviedetail)
         ActionChains(self.browser).move_to_element(verifyoverlay).perform()
         time.sleep(6)
         self.browser.find_element(*self.addtolistmovie).click()
         time.sleep(5)
-        lst = self.browser.find_element(*self.moviedetail)
-        self.browser.execute_script("arguments[0].scrollIntoView();", lst)
-        self.browser.find_element(*self.toggledemo).click()
-        time.sleep(8)
+        WebDriverWait(self.browser, 10).until(EC.presence_of_element_located(self.mylistname))
+        self.browser.find_element(*self.mylistname).click()
+        time.sleep(1)
+        self.browser.find_element(*self.mylistname).send_keys("movietest")
+        time.sleep(3)
+        self.browser.find_element(*self.createlistbutton).click()
+        time.sleep(43)
+        # lst = self.browser.find_element(*self.toggledemo)
+        # self.browser.execute_script("arguments[0].scrollIntoView();", lst)
+        # self.browser.find_element(*self.toggledemo).click()
+        # time.sleep(8)
         WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.addtolistbutton))
         self.browser.find_element(*self.addtolistbutton).click()
-
+        time.sleep(40)
     @allure.step('To verify mylist details page is displayed')
     def verify_mylist(self):
-        time.sleep(40)
         WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.mylist))
         self.browser.find_element(*self.mylist).click()
         time.sleep(10)
@@ -280,6 +289,14 @@ class ListDetails():
         time.sleep(5)
         self.browser.find_element(*self.addtolisdtfooter).click()
         time.sleep(3)
+        # time.sleep(4)
+        # WebDriverWait(self.browser, 10).until(EC.presence_of_element_located(self.mylistname))
+        # self.browser.find_element(*self.mylistname).click()
+        # time.sleep(1)
+        # self.browser.find_element(*self.mylistname).send_keys("autodetailtest")
+        # time.sleep(2)
+        # self.browser.find_element(*self.createlistbutton).click()
+        # time.sleep(20)
         lsst = self.browser.find_element(*self.autotestlist)
         self.browser.execute_script("arguments[0].scrollIntoView();", lsst)
         WebDriverWait(self.browser, 20).until(EC.presence_of_element_located(self.autotestlist))
@@ -339,7 +356,7 @@ class ListDetails():
         self.browser.execute_script("arguments[0].scrollIntoView();", lst)
         self.browser.find_element(*self.mylist).click()
         self.browser.refresh()
-        time.sleep(20)
+        time.sleep(30)
         WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.createdlist))
         footer = self.browser.find_element(*self.createdlist).is_displayed()
         return footer
@@ -348,8 +365,8 @@ class ListDetails():
     def verify_titleincreatedlist(self):
         time.sleep(3)
         self.browser.find_element(*self.createdlist).click()
-        time.sleep(20)
-        WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.verifytitlelist))
+        time.sleep(30)
+        WebDriverWait(self.browser, 50).until(EC.presence_of_element_located(self.verifytitlelist))
         verifytitle = self.browser.find_element(*self.verifytitlelist).is_displayed()
         return verifytitle
 
@@ -438,8 +455,8 @@ class ListDetails():
     @allure.step('To verify delete title in the list')
     def verify_deletetitle(self):
         self.browser.refresh()
-        time.sleep(10)
-        WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.selecttitle))
+        time.sleep(30)
+        WebDriverWait(self.browser, 50).until(EC.presence_of_element_located(self.selecttitle))
         self.browser.find_element(*self.selecttitle).click()
         time.sleep(5)
         self.browser.find_element(*self.deletefooterbutton).click()
@@ -462,13 +479,28 @@ class ListDetails():
         self.browser.find_element(*self.deletelistbutton).click()
         time.sleep(15)
         self.browser.refresh()
-        time.sleep(20)
+        time.sleep(26)
         try:
+            WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.createdlist))
             verify = self.browser.find_element(*self.createdlist)
             if (verify.is_displayed()):
                 return True
         except:
             return False
+
+    """list details-4"""
+
+    @allure.step('Verify My List is underlined in Menu')
+    def verify_listunderline(self):
+        time.sleep(2)
+        WebDriverWait(self.browser, 20).until(EC.presence_of_element_located(self.mylist))
+        lst = self.browser.find_element(*self.mylist)
+        self.browser.execute_script("arguments[0].scrollIntoView();", lst)
+        self.browser.find_element(*self.mylist).click()
+        time.sleep(10)
+        clas = self.browser.find_element(*self.listunderline).get_attribute('class')
+        print(clas)
+        return clas
 
     """list details-37"""
 

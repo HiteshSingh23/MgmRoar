@@ -130,7 +130,7 @@ def test_trailerPlay(browser):
     time.sleep(30)
     trailer.click_trailer_button()
     time.sleep(15)
-    assert trailer.verify_trailerplay() == "bmpui-ui-hugeplaybacktogglebutton bmpui-off", "After clicking on trailer " \
+    assert trailer.verify_trailerplay() == "bmpui-ui-hugeplaybacktogglebutton bmpui-on", "After clicking on trailer " \
                                                                                          "button trailer is not " \
                                                                                          "getting played. "
 

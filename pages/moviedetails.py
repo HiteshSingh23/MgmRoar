@@ -310,7 +310,7 @@ class moviedetails():
         trailer = self.browser.find_element(*self.trailer_button)
         self.browser.execute_script("arguments[0].scrollIntoView();", trailer)
         time.sleep(2)
-        trailer.click()
+        # trailer.click()
 
     @allure.step('Verify trailer is getting play or not')
     def verify_trailerplay(self):

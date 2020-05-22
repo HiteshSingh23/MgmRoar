@@ -14,7 +14,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import Chrome
 
 CONFIG_PATH = 'resources/config.json'
-Browser_path = "venv/Scripts/chromedriver.exe"
+Browser_path = "resources/chromedriver.exe"
 DEFAULT_WAIT_TIME = 10
 SUPPORTED_BROWSERS = ['chrome']
 SUPPORTED_EXECUTORS = ['mobile', 'desktop']

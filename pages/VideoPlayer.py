@@ -18,9 +18,7 @@ class videoplayer:
     setting_button = (By.XPATH, "//div//span[text()='Settings']")
     fullscreen_button = (By.XPATH, "//div//span[text()='Fullscreen']")
     playout_popup = (By.XPATH, "//div[@class='modal-body']")
-    # watchnow_button = (By.XPATH, "//div[@class='btn-container']/button[text()=' Watch Now ']")
-    watchnow_button = (By.XPATH, "//div[@class='carousel-item active']//button[@class='btn-view available-text d-none "
-                                 "d-sm-block'][contains(text(),'Watch Now')]")
+    watchnow_button = (By.XPATH, "//div[@class='btn-container']/button[text()=' Watch Now ']")
 
     def __init__(self, browser):
         self.browser = browser

@@ -134,7 +134,6 @@ class ListDetails():
         WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.addtolistbutton))
         self.browser.find_element(*self.addtolistbutton).click()
         time.sleep(40)
-
     @allure.step('To verify mylist details page is displayed')
     def verify_mylist(self):
         WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.mylist))
@@ -414,12 +413,6 @@ class ListDetails():
         self.browser.execute_cdp_cmd('Page.setDownloadBehavior', params)
         time.sleep(1)
         self.browser.find_element(*self.csvclick).click()
-        time.sleep(8)
-
-        if os.path.isfile(downloads + "\mgm-lions-den-titles.csv"):
-            return True
-        else:
-            return False
 
     """list details-48"""
 
@@ -456,7 +449,7 @@ class ListDetails():
     @allure.step('To verify delete title in the list')
     def verify_deletetitle(self):
         self.browser.refresh()
-        time.sleep(30)
+        time.sleep(35)
         WebDriverWait(self.browser, 50).until(EC.presence_of_element_located(self.selecttitle))
         self.browser.find_element(*self.selecttitle).click()
         time.sleep(5)

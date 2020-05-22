@@ -27,7 +27,7 @@ class homepg():
                   "//span[contains(text(),'Play/Pause')]/ancestor::div[@class='bmpui-ui-playbacktoggle-overlay']/div/button")
     addtolistcarousel = (By.XPATH,
                          "//div[@class='carousel-item active']//button[@class='cui-btn btn-movie'][contains(text(),'ADD TO LIST')]")
-    createlist = (By.XPATH, "//button[@class='cui-btn cui-btn-primary cui-btn-o-1 addList']")
+    createlist = (By.XPATH, "//div[@class='createNewList']")
 
     def __init__(self, browser):
         self.browser = browser

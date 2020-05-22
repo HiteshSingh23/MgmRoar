@@ -75,13 +75,13 @@ class moviedetails():
     def verify_moviedetails(self):
         actionchains = ActionChains(self.browser)
         self.browser.refresh()
-        time.sleep(40)
-        WebDriverWait(self.browser, 50).until(EC.presence_of_element_located(self.movieheader))
+        time.sleep(35)
+        WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.movieheader))
         self.browser.find_element(*self.movieheader).click()
         time.sleep(40)
         self.browser.find_element(*self.searchmovie).send_keys("spectre")
         actionchains.send_keys(Keys.ENTER).perform()
-        time.sleep(20)
+        time.sleep(12)
         lst = self.browser.find_element(*self.viewdetailclick)
         self.browser.execute_script("arguments[0].scrollIntoView();", lst)
         verifyoverlay = self.browser.find_element(*self.viewdetailclick)
@@ -111,6 +111,7 @@ class moviedetails():
         lst = self.browser.find_element(*self.movietrailer)
         WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.movietrailer))
         self.browser.execute_script("arguments[0].scrollIntoView();", lst)
+        WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.movietrailer))
         verify = self.browser.find_element(*self.movietrailer).is_displayed()
         return verify
 
@@ -285,7 +286,7 @@ class moviedetails():
         time.sleep(5)
         WebDriverWait(self.browser, 50).until(EC.presence_of_element_located(self.watchtrailerbutton))
         self.browser.find_element(*self.watchtrailerbutton).click()
-        time.sleep(20)
+        time.sleep(25)
         lst = self.browser.find_element(*self.trailertitle)
         self.browser.execute_script("arguments[0].scrollIntoView();", lst)
         trailer = self.browser.find_element(*self.trailertitle).is_displayed()

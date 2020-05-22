@@ -29,10 +29,17 @@ class recaddListObj:
     cardhover_option1 = (By.XPATH, "//h2[contains(text(),'Recently Watched')]/ancestor::div["
                                    "3]/following-sibling::div//ul[@class='movies-list d-flex active']/li[1]//button["
                                    "contains(text(),'ADD TO LIST')]")
-    cardhover_option2 = (By.XPATH, "//h2[contains(text(),'Recently Watched')]/ancestor::div["
-                                   "3]/following-sibling::div//ul[@class='movies-list d-flex active']/li[2]//button["
+    # cardhover_option2 = (By.XPATH, "//h2[contains(text(),'Recently Watched')]/ancestor::div["
+    #                                "3]/following-sibling::div//ul[@class='movies-list d-flex active']/li[2]//button["
+    #                                "contains(text(),'ADD TO LIST')]")
+    # cardhover_option1 = (By.XPATH, "//h2[contains(text(),'Action / Adventure')]/ancestor::div["
+    #                                "3]/following-sibling::div//ul[@class='movies-list d-flex active']/li[2]//button["
+    #                                "contains(text(),'ADD TO LIST')]")
+    cardhover_option2 = (By.XPATH, "//h2[contains(text(),'Action / Adventure')]/ancestor::div["
+                                   "3]/following-sibling::div//ul[@class='movies-list d-flex active']/li[3]//button["
                                    "contains(text(),'ADD TO LIST')]")
     recently_watched = (By.XPATH, "//h2[contains(text(),'Recently Watched')]")
+    action_adventure = (By.XPATH, "//h2[contains(text(),'Action / Adventure')]")
     total_movie = (By.XPATH, "//h2[contains(text(),'Recently Watched')]/ancestor::div[3]/following-sibling::div//ul["
                              "@class='movies-list d-flex active']//div[@class='desk-on']//p[1]")
 
@@ -41,12 +48,12 @@ class recaddListObj:
 
     @allure.step('Verify  add to List Pop is opened in recently watched section')
     def verify_addToList(self):
-        time.sleep(2)
+        time.sleep(3)
         self.browser.refresh()
         WebDriverWait(self.browser, 50).until(EC.presence_of_element_located(self.recently_watched))
         recently = self.browser.find_element(*self.recently_watched)
         self.browser.execute_script("arguments[0].scrollIntoView();", recently)
-        time.sleep(3)
+        time.sleep(5)
         card1 = self.browser.find_element(*self.cardhover_option1)
         ActionChains(self.browser).move_to_element(card1).perform()
         card1.click()
@@ -61,8 +68,13 @@ class recaddListObj:
         time.sleep(2)
         self.browser.find_element(*self.automation_list).click()
 
+    # @allure.step('Enter list name which you want to create ')
+    # def enter_Listname(self, name):
+    #     self.browser.find_element(*self.input_list).send_keys(name)
+
     @allure.step('Enter list name which you want to create ')
     def enter_Listname(self, name):
+        time.sleep(3)
         self.browser.find_element(*self.input_list).send_keys(name)
 
     @allure.step('Click on Create List button')
@@ -80,13 +92,13 @@ class recaddListObj:
 
     @allure.step('New List should appear in created list')
     def verify_newCreatedlist(self):
-        WebDriverWait(self.browser, 20).until((EC.presence_of_element_located(self.new_created)))
+        WebDriverWait(self.browser, 25).until((EC.presence_of_element_located(self.new_created)))
         return self.browser.find_element(*self.new_created).text
 
     @allure.step('Verify success message after clicking on create list ')
     def verify_success_msg(self):
-        ignored_exceptions = (NoSuchElementException, StaleElementReferenceException,)
-        WebDriverWait(self.browser, 25, ignored_exceptions).until(EC.presence_of_element_located(self.success_created))
+        # ignored_exceptions = (NoSuchElementException, StaleElementReferenceException,)
+        WebDriverWait(self.browser, 35).until(EC.presence_of_element_located(self.success_created)) #ignored_exceptions
         return self.browser.find_element(*self.success_created).is_displayed()
 
     @allure.step('verify Checked box is checked in pop')
@@ -128,10 +140,10 @@ class recaddListObj:
     def click_addtoList2Card(self):
         time.sleep(3)
         self.browser.refresh()
-        WebDriverWait(self.browser, 50).until(EC.presence_of_element_located(self.recently_watched))
-        recently = self.browser.find_element(*self.recently_watched)
-        self.browser.execute_script("arguments[0].scrollIntoView();", recently)
-        time.sleep(3)
+        WebDriverWait(self.browser, 50).until(EC.presence_of_element_located(self.action_adventure))
+        adventures = self.browser.find_element(*self.action_adventure)
+        self.browser.execute_script("arguments[0].scrollIntoView();", adventures)
+        time.sleep(5)
         card2 = self.browser.find_element(*self.cardhover_option2)
         ActionChains(self.browser).move_to_element(card2).perform()
         card2.click()
@@ -149,6 +161,7 @@ class recaddListObj:
         time.sleep(3)
         card2 = self.browser.find_element(*self.cardhover_option2)
         ActionChains(self.browser).move_to_element(card2).perform()
+        time.sleep(1)
         card2.click()
 
     @allure.step('Verify total number of movie cards in recently watched ')

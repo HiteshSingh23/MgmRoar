@@ -24,7 +24,7 @@ class loginpage:
     carousal_image = (By.XPATH, "//div[@class='auth-component']")
     email_textbox = (By.XPATH, "//input[@name='username']")
     next_button = (By.XPATH, "//div[@class='o-form-button-bar']/input")
-    request_an_account = (By.XPATH, "//a[contains(text(),'Request an account')]")
+    request_an_account = (By.XPATH, "//a[contains(text(),'Create an account')]")
     enter_password = (By.XPATH, "//input[@type='password']")
     menu_link_movie = (By.XPATH, "//a[@id='Movies']")
 

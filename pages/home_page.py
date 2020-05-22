@@ -11,7 +11,13 @@ from resources.variables import *
 
 class homePageObj:
     recently_watched = (By.XPATH, "//h2[contains(text(),'Recently Watched')]")
-    title_text = (By.XPATH, "//div[@class='movie-detail']/p[1]")
+    # title_text = (By.XPATH, "//div[@class='movie-detail']/p[1]")
+    title_text = (By.XPATH, "//h2[contains(text(),'Recently Watched')]/ancestor::div[3]/following-sibling::div//ul["
+                            "@class='movies-list d-flex active']/li[1]//mgm-movie-poster[1]//div[1]//div[1]//div["
+                            "3]//p[1]")
+    play_nextMoviname = (By.XPATH, "//h2[contains(text(),'Action / Adventure')]/parent::div/parent::div/parent::div"
+                                   "/following-sibling::div//ul[@class='movies-list d-flex active']/li[3]//div["
+                                   "@class='desk-on']//div[3]/p[1]")
     # movie_cards = (By.XPATH, "//div[@class='home']/mgm-block-picker[2]/mgm-movies-block[1]/div[1]["
     #                          "@class='movies-block-container dark_background']")
     movie_cards = (By.XPATH, "//div[@class='home']/mgm-block-picker[2]/mgm-movies-block[1]//div["
@@ -32,22 +38,26 @@ class homePageObj:
     #                          "2]//button[contains(text(),'Watch movie')]")
     watchmovie_name = (By.XPATH, "//h2[contains(text(),'Action / Adventure')]/parent::div/parent::div/parent::div"
                                  "/following-sibling::div//ul[@class='movies-list d-flex active']/li[2]//div["
-                                 "@class='movie-detail']/p[1]")
-    close_button = (By.XPATH, "//img[@class='close-btn-image']")
+                                 "@class='desk-on']//div[3]/p[1]")
+    close_button = (By.XPATH, "//div[@class='close tele-close']//img[@class='close-btn-image']")
     play_begining = (By.XPATH, "//button[@class='watch-again-btn btn-view']")
     # poster_image = (By.XPATH, "//div//img[@class='image-loaded']")
     poster_image = (By.XPATH, "//div[@class='movies-block-container dark_background']//ul[@class='movies-list d-flex "
                               "active']//li[1]//mgm-movie-poster[1]//div[1]//div[1]//div[1]//div[1]")
     movie_generes = (By.XPATH, "//div[@class='home']/mgm-block-picker[2]/mgm-movies-block[1]//li[1]//div["
                                "@class='movie']/following-sibling::div[2]/span[1]")
-    cardhover_option1 = (By.XPATH, "//div[@class='home']/mgm-block-picker[2]/mgm-movies-block[1]//li[1]//div["
-                                   "@class='movie-poster']/div[2]/ul[1]/li[1]")
-    cardhover_option2 = (By.XPATH, "//div[@class='home']/mgm-block-picker[2]/mgm-movies-block[1]//li[1]//div["
-                                   "@class='movie-poster']/div[2]/ul[1]/li[2]")
-    cardhover_option3 = (By.XPATH, "//div[@class='home']/mgm-block-picker[2]/mgm-movies-block[1]//li[1]//div["
-                                   "@class='movie-poster']/div[2]/ul[1]/li[3]")
-    cardhover_option4 = (By.XPATH, "//div[@class='home']/mgm-block-picker[2]/mgm-movies-block[1]//li[1]//div["
-                                   "@class='movie-poster']/div[2]/ul[1]/li[4]")
+    cardhover_option1 = (By.XPATH, "//h2[contains(text(),'Recently Watched')]/ancestor::div["
+                                   "3]/following-sibling::div//ul[@class='movies-list d-flex active']/li[1]//button["
+                                   "contains(text(),'ADD TO LIST')]")
+    cardhover_option2 = (By.XPATH, "//h2[contains(text(),'Recently Watched')]/ancestor::div["
+                                   "3]/following-sibling::div//ul[@class='movies-list d-flex active']/li[1]//button["
+                                   "contains(text(),'Watch movie')]")
+    cardhover_option3 = (By.XPATH, "//h2[contains(text(),'Recently Watched')]/ancestor::div["
+                                   "3]/following-sibling::div//ul[@class='movies-list d-flex active']/li[1]//button["
+                                   "contains(text(),'Watch trailer')]")
+    cardhover_option4 = (By.XPATH, "//h2[contains(text(),'Recently Watched')]/ancestor::div["
+                                   "3]/following-sibling::div//ul[@class='movies-list d-flex active']/li[1]//button["
+                                   "contains(text(),'View details')]")
     alert = (By.XPATH, "//div[@class='atl-title-label uppercase']")
     watch_popup = (By.XPATH, "//div[@id='bitmovin-player']")
     mgm_img = (By.XPATH, "//a[@class='logo-img']//img")
@@ -57,13 +67,14 @@ class homePageObj:
     # myList_seeall = (By.XPATH, "//a[contains(text(),'SEE ALL')]")
     myList_seeall = (By.XPATH, "//a[contains(text(),'SEE LISTS')]")
     automation_mylist = (By.XPATH, "//a[contains(text(),'Automation List')]")
-    delete_btn = (By.XPATH, "//button[contains(text(),'DELETE')]")
+    # delete_btn = (By.XPATH, "//button[contains(text(),'DELETE')]")
+    delete_btn = (By.XPATH, "//span[contains(text(),'DELETE')]")
     mylist_tab = (By.XPATH, "//ul[@class='menu-items']//a[@id='My Lists']")
     autoRand_list = (By.XPATH, "//a[contains(text(),'" + new_List_name + "')]")
     delete_permission = (By.XPATH, "//button[@class='cui-btn cui-btn-primary ng-star-inserted']")
-    #footer
-    privacy_policy = (By.XPATH, "//a[contains(text(),'privacy policy')]")
-    terms_use = (By.XPATH, "//a[contains(text(),'terms of use')]")
+    # footer
+    privacy_policy = (By.XPATH, "//a[contains(text(),'Privacy Policy')]")
+    terms_use = (By.XPATH, "//a[contains(text(),'Terms of use')]")
     footer_logo = (By.XPATH, "//img[@class='d-none d-md-inline']")
     support = (By.XPATH, "//a[@class='support-link']")
     address = (By.XPATH, "//span[@class='contact-address']")
@@ -79,16 +90,18 @@ class homePageObj:
     @allure.step('Verify Recently watched Heading is displayed ')
     def verify_recentlywatched(self):
         WebDriverWait(self.browser, 50).until(EC.presence_of_element_located(self.recently_watched))
+        recently = self.browser.find_element(*self.recently_watched)
+        self.browser.execute_script("arguments[0].scrollIntoView();", recently)
         return self.browser.find_element(*self.recently_watched).text
 
     @allure.step('Verify Title text of movie in recently watched ')
     def verify_titleText(self):
-        time.sleep(3)
-        first = self.browser.find_elements(*self.title_text)
-        print(first[0].text)
-        ActionChains(self.browser).move_to_element(first[1]).perform()
+        WebDriverWait(self.browser, 20).until(EC.presence_of_element_located(self.title_text))
+        first = self.browser.find_element(*self.title_text)  # Title 1
+        print(first.text)
+        ActionChains(self.browser).move_to_element(first).perform()
         time.sleep(2)
-        return first[0].is_displayed()
+        return first.is_displayed()
 
     @allure.step('Verify movie cards in recently watched ')
     def verify_moviecards(self):
@@ -131,25 +144,26 @@ class homePageObj:
 
     @allure.step('Click on watch movie from Action /Adventure cards ')
     def click_watchmovie(self):
+        WebDriverWait(self.browser, 50).until(EC.presence_of_element_located(self.action_adventure))
         adventures = self.browser.find_element(*self.action_adventure)
         self.browser.execute_script("arguments[0].scrollIntoView();", adventures)
         time.sleep(4)
-        watch_movie = self.browser.find_element(*self.watch_movie)
-        ActionChains(self.browser).move_to_element(watch_movie).perform()
+        watch = self.browser.find_element(*self.watch_movie)
+        ActionChains(self.browser).move_to_element(watch).perform()
         time.sleep(3)
-        watch_movie.click()
+        watch.click()
         time.sleep(13)
         try:
             condition = self.browser.find_element(*self.play_begining)
             condition1 = condition.is_displayed()
         except:
             condition1 = False
-            time.sleep(60)
+            time.sleep(20)  # 60
 
         if condition1 == True:
             time.sleep(2)
             self.browser.find_element(*self.play_begining).click()
-            time.sleep(65)
+            time.sleep(15)  # 60
 
     @allure.step('get the movie name, which you are going to play.')
     def play_moviename(self):
@@ -166,15 +180,24 @@ class homePageObj:
     def recent_moviename(self):
         self.browser.refresh()
         WebDriverWait(self.browser, 50).until(EC.presence_of_element_located(self.recently_watched))
-        global recent_moviename
+        global recent_movie
         recently = self.browser.find_element(*self.recently_watched)
         self.browser.execute_script("arguments[0].scrollIntoView();", recently)
         time.sleep(3)
-        first = self.browser.find_elements(*self.title_text)
-        print(first[0].text)
+        first = self.browser.find_element(*self.title_text)  # title 1
+        print(first.text)
         time.sleep(1)
-        recent_moviename = first[0].text
-        return recent_moviename
+        recent_movie = first.text
+        return recent_movie
+
+    @allure.step('Get the 2nd Movie name in recently watched section')
+    def play_2movieCard_name(self):
+        time.sleep(2)
+        second = self.browser.find_element(*self.play_nextMoviname)  # title 2
+        print(second.text)
+        time.sleep(1)
+        recent_movie = second.text
+        return recent_movie
 
     def RecentlyWatchedPosterImage(self):
         image = self.browser.find_element(*self.poster_image)
@@ -184,9 +207,9 @@ class homePageObj:
 
     @allure.step('Movie Title Element')
     def verifyMovieTitle(self):
-        first = self.browser.find_elements(*self.title_text)
-        print(first[0].text)
-        return first[0].text
+        first = self.browser.find_element(*self.title_text)  # title 1
+        print(first.text)
+        return first.text
 
     @allure.step('Movie Genre Element')
     def MovieGenre(self):
@@ -202,16 +225,22 @@ class homePageObj:
     @allure.step('Verify Watch movie option in recently watched movie card')
     def watchMoviesoption(self):
         time.sleep(1)
+        card2 = self.browser.find_element(*self.cardhover_option2)
+        ActionChains(self.browser).move_to_element(card2).perform()
         return self.browser.find_element(*self.cardhover_option2).text
 
     @allure.step('Verify Watch Trailer option in recently watched movie card')
     def watchTraileroption(self):
         time.sleep(1)
+        card3 = self.browser.find_element(*self.cardhover_option3)
+        ActionChains(self.browser).move_to_element(card3).perform()
         return self.browser.find_element(*self.cardhover_option3).text
 
     @allure.step('Verify View Details option in recently watched movie card')
     def viewDetailsoption(self):
         time.sleep(1)
+        card4 = self.browser.find_element(*self.cardhover_option4)
+        ActionChains(self.browser).move_to_element(card4).perform()
         return self.browser.find_element(*self.cardhover_option4).text
 
     @allure.step('Click on add to List ')
@@ -296,7 +325,7 @@ class homePageObj:
 
     @allure.step('Verify on click right navigation arrow the 1st movie card is displayed ')
     def verify_1card_slide(self):
-        first = self.browser.find_element(*self.title_text)
+        first = self.browser.find_element(*self.title_text)  # title 1
         print(first.text)
         time.sleep(1)
         return first.is_displayed()
@@ -304,7 +333,7 @@ class homePageObj:
     @allure.step('Click Second Right nav arrow ')
     def click_secnav_arrow(self):
         try:
-            condition = self.browser.find_element(*self.next_arrow)#sec_next_arrow
+            condition = self.browser.find_element(*self.next_arrow)  # sec_next_arrow
             time.sleep(1)
             condition1 = condition.is_displayed()
         except:
@@ -312,14 +341,14 @@ class homePageObj:
 
         if condition1 == True:
             time.sleep(2)
-            right_nav = self.browser.find_element(*self.next_arrow)#sec_next_arrow
+            right_nav = self.browser.find_element(*self.next_arrow)  # sec_next_arrow
             self.browser.implicitly_wait(10)
             ActionChains(self.browser).move_to_element(right_nav).click(right_nav).perform()
 
     @allure.step('Verify Right nav arrow got disabled when we are on last ')
     def verify_right_disbaled(self):
         try:
-            isPresent = self.browser.find_element(*self.next_arrow).is_displayed() #third_next_arrow
+            isPresent = self.browser.find_element(*self.next_arrow).is_displayed()  # third_next_arrow
             if isPresent:
                 return True
 
@@ -345,14 +374,16 @@ class homePageObj:
 
     @allure.step('Verify Movie is added in Automaion List  ')
     def verifyMovie_list(self, movie):
-        time.sleep(8)
-        movie_name = self.browser.find_element_by_xpath("//div[@class='desk-on']//p[@class='movie-title light-color'][contains(text(),'" + movie + "')]")
+        time.sleep(17)
+        movie_name = self.browser.find_element_by_xpath(
+            "//div[@class='desk-on']//p[@class='movie-title light-color'][contains(text(),'" + str(movie) + "')]")
         return movie_name.text
 
     @allure.step('Delete movie from list')
     def delete_movie(self, movie):
         time.sleep(7)
-        self.browser.find_element_by_xpath("//div[1][div[div[p[contains(text(),'" + movie + "')]]]]/ancestor::div[1]/preceding-sibling::div[1]//input").click()
+        self.browser.find_element_by_xpath("//div[1][div[div[p[contains(text(),'" + str(
+            movie) + "')]]]]/ancestor::div[1]/preceding-sibling::div[1]//input").click()
         # self.browser.execute_script("arguments[0].click();", check)
         time.sleep(2)
         self.browser.find_element(*self.delete_btn).click()
@@ -361,10 +392,9 @@ class homePageObj:
 
     @allure.step('Click and verify  newly created list ')
     def click_verify_new_list(self):
-        WebDriverWait(self.browser, 35).until(EC.element_to_be_clickable(self.mylist_tab))
-        # time.sleep(30)
+        time.sleep(5)
         self.browser.find_element(*self.mylist_tab).click()
-        time.sleep(10)
+        time.sleep(17)
         self.browser.find_element(*self.autoRand_list).click()
 
     # Footer
@@ -417,27 +447,5 @@ class homePageObj:
     def verify_copyright(self):
         time.sleep(1)
         return self.browser.find_element(*self.copyright).is_displayed()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

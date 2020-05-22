@@ -207,6 +207,7 @@ class moviedetails():
         lst = self.browser.find_element(*self.mylist)
         self.browser.execute_script("arguments[0].scrollIntoView();", lst)
         self.browser.find_element(*self.mylist).click()
+        time.sleep(8)
         self.browser.refresh()
         time.sleep(55)
         WebDriverWait(self.browser, 40).until(EC.presence_of_element_located(self.titleinlist))

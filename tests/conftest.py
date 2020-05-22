@@ -72,8 +72,8 @@ def browser(config_browser, config_wait_time, config_executor, request):
             desired_caps['platformVersion'] = '10'
             desired_caps['deviceName'] = 'myphone'
             desired_caps['browserName'] = 'Chrome'
-            driver = webdriver.Remote('http://localhost:8080/wd/hub', desired_caps)
-            # driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+            # driver = webdriver.Remote('http://localhost:8080/wd/hub', desired_caps)
+            driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         elif config_executor == "desktop":
             options = Options()
             # options.headless = True
@@ -83,11 +83,11 @@ def browser(config_browser, config_wait_time, config_executor, request):
             options.add_argument("--proxy-server='direct://'")
             options.add_argument("--proxy-bypass-list=*")
             options.add_argument("--start-maximized")
-            options.add_argument('--headless')
-            options.add_argument('--disable-gpu')
-            options.add_argument('--disable-dev-shm-usage')
-            options.add_argument('--no-sandbox')
-            options.add_argument('--ignore-certificate-errors')
+            # options.add_argument('--headless')
+            # options.add_argument('--disable-gpu')
+            # options.add_argument('--disable-dev-shm-usage')
+            # options.add_argument('--no-sandbox')
+            # options.add_argument('--ignore-certificate-errors')
             driver = Chrome(Browser_path, options=options)  # , options = options
         else:
             raise Exception(f'"{config_executor}" is not a supported executor')

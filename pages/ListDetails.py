@@ -134,6 +134,7 @@ class ListDetails():
         WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.addtolistbutton))
         self.browser.find_element(*self.addtolistbutton).click()
         time.sleep(40)
+
     @allure.step('To verify mylist details page is displayed')
     def verify_mylist(self):
         WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.mylist))

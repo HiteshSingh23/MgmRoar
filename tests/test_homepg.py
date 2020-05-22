@@ -59,17 +59,23 @@ def test_watchnow(browser):
     assert listdet.verify_watchnow() == True, "play out popup not found"
 
 
+
 @allure.title('tc-20,Verify all controls of the pop up works correctly')
 def test_popupcontrols(browser):
-    global listdet
     listdet = homepg(browser)
     assert listdet.verify_popupmutecontrols() == "bmpui-ui-volumetogglebutton bmpui-unmuted", "mute unmute button not found"
     assert listdet.verify_popupplaycontrols() == "bmpui-ui-hugeplaybacktogglebutton bmpui-on", "play pause button not found"
+
+
+def test_closeplayer(browser):
+    global listdet
+    listdet = homepg(browser)
+    listdet.verify_closeplayer()
 
 
 @allure.title('tc-36,Verify functionality of Add to List button')
 def test_addtolistbutton(browser):
     global listdet
     listdet = homepg(browser)
-    listdet.verify_closeplayer()
     assert listdet.verify_addtolistbutton() == True, "add to list button not found"
+    listdet.browser.refresh()

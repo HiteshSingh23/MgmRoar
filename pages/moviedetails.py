@@ -25,7 +25,7 @@ class moviedetails():
                        "//li[1]//div[@class='desk-on']//button[contains(text(),'View details')]")
     movieheaderinfo = (By.XPATH, "//div[@class='movie-info']")
     moviesynopsis = (By.XPATH, "//div[@class='col-7 right active']/p")
-    movietrailer = (By.XPATH, "//div[@class='videos-block light_background ng-star-inserted']/div")
+    movietrailer = (By.XPATH, "//div[contains(text(),'Trailer')]")
     moviephotos = (By.XPATH, "//div[contains(text(),'Photos')]")
     castprod = (By.XPATH, "//h1[contains(text(),'Cast, Production and Crew')]")
     HeroImage = (By.XPATH, "//div[@class='overlay ng-star-inserted']")
@@ -75,13 +75,13 @@ class moviedetails():
     def verify_moviedetails(self):
         actionchains = ActionChains(self.browser)
         self.browser.refresh()
-        time.sleep(35)
-        WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.movieheader))
+        time.sleep(40)
+        WebDriverWait(self.browser, 50).until(EC.presence_of_element_located(self.movieheader))
         self.browser.find_element(*self.movieheader).click()
         time.sleep(40)
         self.browser.find_element(*self.searchmovie).send_keys("spectre")
         actionchains.send_keys(Keys.ENTER).perform()
-        time.sleep(12)
+        time.sleep(20)
         lst = self.browser.find_element(*self.viewdetailclick)
         self.browser.execute_script("arguments[0].scrollIntoView();", lst)
         verifyoverlay = self.browser.find_element(*self.viewdetailclick)
@@ -111,7 +111,6 @@ class moviedetails():
         lst = self.browser.find_element(*self.movietrailer)
         WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.movietrailer))
         self.browser.execute_script("arguments[0].scrollIntoView();", lst)
-        WebDriverWait(self.browser, 30).until(EC.presence_of_element_located(self.movietrailer))
         verify = self.browser.find_element(*self.movietrailer).is_displayed()
         return verify
 

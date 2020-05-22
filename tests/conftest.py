@@ -72,7 +72,8 @@ def browser(config_browser, config_wait_time, config_executor, request):
             desired_caps['platformVersion'] = '10'
             desired_caps['deviceName'] = 'myphone'
             desired_caps['browserName'] = 'Chrome'
-            driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+            driver = webdriver.Remote('http://localhost:8080/wd/hub', desired_caps)
+            # driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         elif config_executor == "desktop":
             options = Options()
             # options.headless = True

@@ -17,8 +17,7 @@ def test_loginpage(browser):
     verify = user.load()
     assert verify == "Log in to MGM ROAR", "Unable to load login page"
     print(verify)
-#
-#
+
 # @allure.title('Verify carousel image set by admin is visible')
 # def test_verifycarousalimage(browser):
 #     verify = user.CarouselImage()
